@@ -10,6 +10,6 @@ class ProductsController < RankingController
   end
 
   def search
-    @products = Product.where('title LIKE(?)', "%#{params[:keyword]}%")
+    @products = Product.where('detail LIKE(?)', "%#{params[:keyword]}%")
   end
 end

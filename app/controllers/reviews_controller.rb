@@ -1,5 +1,4 @@
 class ReviewsController < RankingController
-  before_action :authenticate_user!, only: :new
 
   def new
     @product = Product.find params[:product_id]
@@ -13,6 +12,6 @@ class ReviewsController < RankingController
 
   private
     def create_params
-      params.require(:review).permit(:rate, :review).merge(product_id: params[:product_id], user_id: current_user.id)
+      params.require(:review).permit(:rate).merge(product_id: params[:product_id], user_id: current_user.id)
     end
 end
